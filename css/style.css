@@ -1409,6 +1409,7 @@ form label {
 
 .owl-carousel .owl-controls .owl-dot span {
   background: #e6e6e6;
+  display: none;
 }
 .owl-carousel .owl-controls .owl-dot span:hover, .owl-carousel .owl-controls .owl-dot span:focus {
   background: #cccccc;
