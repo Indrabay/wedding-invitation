@@ -1409,7 +1409,6 @@ form label {
 
 .owl-carousel .owl-controls .owl-dot span {
   background: #e6e6e6;
-  display: none;
 }
 .owl-carousel .owl-controls .owl-dot span:hover, .owl-carousel .owl-controls .owl-dot span:focus {
   background: #cccccc;
@@ -1421,6 +1420,27 @@ form label {
   background: transparent;
   border: 2px solid #F14E95;
 }
+
+.owl-prev {
+  /* width: 15px; */
+  height: 100px;
+  position: absolute;
+  top: 40%;
+  margin-left: -20px;
+  display: block !important;
+  border:0px solid black;
+}
+
+.owl-next {
+  /* width: 15px; */
+  height: 100px;
+  position: absolute;
+  top: 40%;
+  right: -25px;
+  display: block !important;
+  border:0px solid black;
+}
+.owl-prev i, .owl-next i {transform : scale(1,6); color: #ccc;}
 
 #fh5co-offcanvas {
   position: absolute;

@@ -22,6 +22,9 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
+	<!-- Font Awesome -->
+	<link href="css/all.css" rel="stylesheet">
+
 	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="css/magnific-popup.css">
 
@@ -523,12 +526,13 @@
 			owl.owlCarousel({
 				items: 1,
 				loop: true,
-				margin: 0,
+				margin: 10,
 				responsiveClass: true,
-				nav: false,
-				dots: true,
+				nav: true,
+				dots: false,
 				smartSpeed: 800,
 				autoHeight: true,
+				navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>']
 			});
 		};
 
