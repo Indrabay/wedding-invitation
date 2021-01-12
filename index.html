@@ -371,6 +371,49 @@
 		</div>
 	</div>
 
+	<div id="fh5co-testimonial" class="fh5co-section-gray">
+		<div class="container">
+			<div class="row">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<span>Best Wishes</span>
+						<h2>Our Wishes</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 animate-box">
+						<div class="wrap-testimony">
+							<div class="owl-carousel-fullwidth" id="automatic-wishes">
+								<!-- <div class="item">
+									<div class="testimony-slide active text-center">
+										<figure>
+											<img src="images/couple-1.jpg" alt="user">
+										</figure>
+										<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
+										<blockquote>
+											<p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics"</p>
+										</blockquote>
+									</div>
+								</div>
+								<div class="item">
+									<div class="testimony-slide active text-center">
+										<figure>
+											<img src="images/couple-1.jpg" alt="user">
+										</figure>
+										<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
+										<blockquote>
+											<p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics"</p>
+										</blockquote>
+									</div>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
 
@@ -439,6 +482,57 @@
 		$('#myselect').on('change', function(){
 			$('#myinput').val($(this).val());
 		})
+
+		function refreshCarousel() {
+			var urlspreadsheet = "http://spreadsheets.google.com/feeds/list/1nUGAmBnSN0lt_VyQCHtgAKew-TjgRuNDhDGRs_EF-Fc/od6/public/values?alt=json"
+
+			$.ajax({
+				url: urlspreadsheet,
+				crossDomain: true,
+				dataType: 'jsonp'
+			}).done(function(result){
+				convertData(result);
+				testimonialCarousel();
+			});
+		}
+
+		refreshCarousel()
+
+		function convertData(data) {
+			sheetData = data.feed.entry;
+			var i;
+			document.getElementById('automatic-wishes').innerHTML = ''
+			for (i = sheetData.length - 1; i >= 0; i--) {
+				var name = sheetData[i]['gsx$name']['$t']
+				var wishes = sheetData[i]['gsx$wishes']['$t']
+				document.getElementById('automatic-wishes').innerHTML += (
+					`<div class="item">
+						<div class="testimony-slide active text-center">
+							<span>${name}</span>
+							<blockquote>
+								<p>"${wishes}"</p>
+							</blockquote>
+						</div>
+					</div>`
+				)
+			}
+		}
+
+		var testimonialCarousel = function(){
+		var owl = $('.owl-carousel-fullwidth');
+			owl.owlCarousel({
+				items: 1,
+				loop: true,
+				margin: 0,
+				responsiveClass: true,
+				nav: false,
+				dots: true,
+				smartSpeed: 800,
+				autoHeight: true,
+			});
+		};
+
+		// testimonialCarousel()
 
 		// init
 		$('#myselect').change();
@@ -528,11 +622,10 @@
 				data: $form.serializeObject(),
 			}).success(
 				changeinput(),
-				alert('berhasil')
+				alert('berhasil'),
 			);
+			window.location.reload();
 		});
-
-		$
 </script>
 
 	</body>
