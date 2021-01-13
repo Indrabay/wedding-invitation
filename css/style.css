@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 .fh5co-nav #fh5co-logo {
-  font-size: 40px;
+  font-size: 24px;
   margin: 0;
   padding: 0;
   line-height: 40px;
@@ -109,6 +109,15 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 5px 10px;
   color: #fff;
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  opacity: 0.3;
+}
+
 @media screen and (max-width: 768px) {
   .fh5co-nav .menu-1, .fh5co-nav .menu-2 {
     display: none;
@@ -577,6 +586,53 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .timeline-title {
   margin-top: 0;
+}
+
+.image-display {
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  /* display: flex; */
+  position: relative;
+  float: left;
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  min-height: 400px;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: left;
+  clear: left;
+  position: relative;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  border-radius: 7px;
+}
+@media screen and (max-width: 480px) {
+  .image-display {
+    margin-left: 0;
+  }
+}
+
+.image-display div.one-third {
+  width: 32.3%;
+}
+@media screen and (max-width: 768px) {
+  .image-display div.one-third {
+    width: 49%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .image-display div.one-third {
+    width: 100%;
+  }
 }
 
 .date {
